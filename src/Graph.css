@@ -1,0 +1,15 @@
+.graph_widget{
+    display: flex;
+    box-sizing: border-box;
+    /* padding: 5px; */
+    /* margin-left: 20px; */
+    min-width: 50%;
+    min-height: 50vh;
+    background-color: #114b24;
+    /* border: 2px solid #e42517; */
+    /*min-height: 10vh;*/  
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
