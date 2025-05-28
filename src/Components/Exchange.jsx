@@ -33,7 +33,7 @@ const Exchange = () => {
             {error && <p>Ошибка: {error}</p>}
             {rate && (
                 <div>
-                    <p>Курс ЦБ:</p>
+                    <p>EXCHANGE</p>
                     <p>
                         1 USD = {rate} RUB
                     </p>

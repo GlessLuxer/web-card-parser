@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Selector.css';
 
-const merchArray = ['10xx-1030', '1050', '1060', '1070', '1080', '1090'];
+const merchArray = ['GeForce RTX 30 Series', 'GeForce RTX 40 Series', 'GeForce RTX 50 Series'];
+const merchArraySeries50 = ['GeForse RTX 5060','GeForse RTX 5060 Ti', 'GeForse RTX 5070', 'GeForse RTX 5070 Ti', 'GeForse RTX 5080', 'GeForse RTX 5090'];
+const merchArraySeries40 = ['GeForse RTX 4060','GeForse RTX 4060 Ti', 'GeForse RTX 4070', 'GeForse RTX 4070 Ti', 'GeForse RTX 4070 Ti SUPER', 'GeForse RTX 4080 Super', 'GeForse RTX 4090'];
+const merchArraySeries30 = ['GeForse RTX 3050 (6GB)','GeForse RTX 3050 (8GB)','GeForse RTX 3060','GeForse RTX 3060 Ti', 'GeForse RTX 3070', 'GeForse RTX 3070 Ti', 'GeForse RTX 3080', 'GeForse RTX 3080 Ti', 'GeForse RTX 3090','GeForse RTX 3090 Ti'];
+
 
 function Selector() {
   // Используем state для всех изменяемых значений
@@ -9,9 +13,14 @@ function Selector() {
   const [finalName, setFinalName] = useState('');
   const [isOpen, setIsOpen] = useState(false); //хук на скрытие списка
   const [modelName, setModelName] = useState('Card model...'); //хук на выбор из списка моделей
+  const [childIsOpen, setChildIsOpen] = useState(false); //хук на дочерний список
 
   const openCloseList = () => {
     setIsOpen(!isOpen);
+  };
+
+  const childOpenCloseList = () => {
+    setChildIsOpen(!childIsOpen);
   };
 
   const changeModelName = (event) => {
@@ -29,21 +38,33 @@ function Selector() {
     <div className='selector_widget'>
       <div className='panelGrid'>
         <button className="button" onClick={openCloseList}>
-          {modelName}
-        </button>
-        {isOpen && (
+          {modelName}{isOpen && (
           <ul className='list'>
             {merchArray.map(item => (
               <li 
                 key={item} 
                 className='list_element' 
-                onClick={changeModelName}
+                // onClick={changeModelName}
+                onClick={childOpenCloseList}
               >
-                {item}
+                {item}{childIsOpen && (
+                  <ul className='list'>
+                    {merchArraySeries30.map(item => (
+                      <li 
+                      key={item} 
+                      className='list_element' 
+                      onClick={changeModelName}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
         )}
+        </button>
+        
         <label htmlFor="radioNone" className='label'>
           None
           <input 
@@ -75,7 +96,7 @@ function Selector() {
           />
         </label>
         <div>
-          Итоговое значение: {finalName}
+          {finalName}
         </div>
       </div>
     </div>

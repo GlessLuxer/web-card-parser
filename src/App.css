@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto_Condensed-SemiBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
 .App {
   text-align: center;
 }
@@ -14,37 +20,37 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #16181d;
+  
   min-height: 10vh;
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: center; */
-  justify-content:center;
   font-size: calc(10px + 2vmin);
   color: white;
+  background-image: radial-gradient(rgb(43, 42, 42) 1px, transparent 0);
+  background-size: 20px 20px;
+  
 }
 
 .title {
   display: flex;
-  flex-direction:column;
+  flex-direction:row;
   flex: 1;
-  /* min-width: 75vh; */
+  padding-left: 10%;
   /* border: 2px solid red; */
-  /* align-items: center; */
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  font-size: calc(20px + 2vmin);
   color: white;
+  font-family: 'Roboto';
 }
 
-.title::before{
+/* .title::before{
  content: "";
  display: block;
  width: 10%;
  height: 100%;
- background-image: url('./logo4.png');
  background-size: cover;
  background-position: left;
-}
+} */
 
 .App-content{
   background-color: rgb(17, 17, 17);
@@ -55,10 +61,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0); 
+  background-image: radial-gradient(rgb(43, 42, 42) 1px, transparent 0);
+  background-size: 20px 20px;
 }
 
 .App-footer {
-  background-color: #282c34;
+  background-color: #16181d;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -66,6 +74,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  background-image: radial-gradient(rgb(43, 42, 42) 1px, transparent 0);
+  background-size: 20px 20px;
 }
 
 .App-link {

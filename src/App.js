@@ -1,7 +1,6 @@
-//import logo from './logo.svg';
-import Exchange from './Exchange.js';
-import Graph from './Graph.js';
-import Selector from './Selector.jsx';
+import Exchange from './Components/Exchange.jsx';
+import Graph from './Components/Graph.jsx';
+import Selector from './Components/Selector.jsx';
 import './App.css';
 
 
@@ -10,13 +9,13 @@ function App() {
     <div className="App">
 
       <header className="App-header">
-        <div className='title'></div>
-        <Exchange></Exchange>
+        <div className='title'> PRICE PARCER</div>
+        <Exchange/>
       </header>
      
       <div className="App-content">
         <Graph></Graph>
-        <Selector></Selector>
+        <Selector/>
       </div>      
      
       <footer className="App-footer">

@@ -10,7 +10,7 @@
     /* border: 1px solid red; */
 }
 .panelGrid{
-    /* border: 1px solid red; */
+    border: 1px solid red;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
@@ -18,13 +18,15 @@
     overflow: hidden;
     grid-template-rows: auto;
     grid-auto-flow: row;
+    overflow: visible;
+    row-gap: 20vh;
     
 }
 .button{
     background-color:rgb(40, 44, 52);
     padding: 0;
     list-style: none;
-    /* width: 10vw; */
+    width: 15vw;
     height: 5vh;
     border-radius: 10px;
     cursor: pointer;
@@ -32,6 +34,7 @@
     color: aliceblue;
     box-shadow: none;
     border: 1px solid rgb(119, 119, 119);
+    position: relative;
 }
 .button:hover{
     border: 1px solid rgb(73, 73, 73);
@@ -41,7 +44,13 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    grid-row: 2;
+    /* grid-row: 2; */
+    position: absolute;
+    top: 130%;
+    width: 100%;
+    border-radius: 10px;
+    /* border: 1px solid   red; */
+    overflow: visible;
 }
 .list_element{
     background-color:rgb(40, 44, 52);

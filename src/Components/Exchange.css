@@ -1,16 +1,22 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto_Condensed-SemiBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
 .exchange_widget{
   display: flex;
   padding: 1px;
   min-width: 25vh;
   max-width: 25vh;
-  background-color: #1c4753;
+  /* background-color: #1c4753; */
   /* border: 2px solid #e42517; */
   /*min-height: 10vh;*/  
   align-items: center;
   justify-content: center;
   font-size: calc(7px + 1vmin);
   color: white;
-  font-family:"Outfit","Outfit Fallback";
+  font-family:'Roboto';
 }
 p {
   margin: 0;
