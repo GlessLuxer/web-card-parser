@@ -3,7 +3,7 @@
     box-sizing: border-box;
     /* padding: 5px; */
     /* margin-left: 20px; */
-    min-width: 50%;
+    min-width: 80vw;
     min-height: 50vh;
     background-color: #114b24;
     /* border: 2px solid #e42517; */
@@ -12,4 +12,25 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+}
+.recharts-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.recharts-chart {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.recharts-cartesian-axis-tick-value {
+  font-size: 12px;
+}
+
+.recharts-tooltip {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
 }

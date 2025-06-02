@@ -2,31 +2,33 @@
     display: flex;
     /* justify-content: center; */
     flex-direction: column;
-    min-width: 40%;
+    min-width: 20%;
     min-height: 50vh;
-    background-color: rgb(40, 44, 52);
+    /* background-color: rgb(40, 44, 52); */
     font-family: "Outfit","Outfit Fallback";
     color: aliceblue;
+    align-items: center;
     /* border: 1px solid red; */
 }
 .panelGrid{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
     grid-template-rows: auto;
     /* margin: auto; */
-    overflow: hidden;
-    grid-template-rows: auto;
+    /* overflow: hidden; */
+    /* grid-template-rows: auto; */
     grid-auto-flow: row;
     overflow: visible;
     row-gap: 20vh;
-    
+    position: relative;
+    justify-content: center;
 }
 .button{
-    background-color:rgb(40, 44, 52);
+    /* background-color:rgb(40, 44, 52); */
     padding: 0;
     list-style: none;
-    width: 15vw;
+    width: 17vw;
     height: 5vh;
     border-radius: 10px;
     cursor: pointer;
@@ -34,30 +36,64 @@
     color: aliceblue;
     box-shadow: none;
     border: 1px solid rgb(119, 119, 119);
-    position: relative;
-}
+
+    background: linear-gradient(to right, #b9babd, #625af5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1rem;
+            font-weight: bold;
+}   
 .button:hover{
     border: 1px solid rgb(73, 73, 73);
     background-color: rgb(97, 97, 97);
+     
 }
-.list{
+.arrow{
+    display: inline;
+    padding-right: 1em; padding-left: 0.5em;
+    height: 1em; width: 1em;
+    float: right;
+    line-height: 1.1rem;
+}
+.list_1{
     list-style: none;
     padding: 0;
     margin: 0;
-    /* grid-row: 2; */
+    grid-row: 2;
     position: absolute;
-    top: 130%;
-    width: 100%;
+    margin-top: 2%;
+    width: 17vw;
     border-radius: 10px;
     /* border: 1px solid   red; */
     overflow: visible;
+    justify-content: center;
+    background-color:rgb(68, 79, 102);
+    border: 1px solid rgb(109, 105, 105);
+}
+.list_2{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    grid-row: 2;
+    position: absolute;
+    top: 0%;
+    right: 102%;
+    width: 15vw;
+    border-radius: 10px;
+    /* border: 1px solid   red; */
+    overflow: visible;
+    justify-content: center;
+    background-color:rgb(68, 79, 102);
+    border: 1px solid rgb(119, 119, 119);
 }
 .list_element{
-    background-color:rgb(40, 44, 52);
+    /* background-color:rgb(40, 44, 52); */
     align-items: center;
-    
+    justify-content: center;
     font-size: 2vh;
     cursor: pointer;
+
 }
 .list_element:hover{
     background-color: rgb(153, 153, 153);
@@ -69,5 +105,16 @@
 }
 .radio{
     margin-left: 0.5vw ;
+    cursor: pointer;
+}
+.btnRequest{
+    border: none;
+    background-color: rgb(101, 61, 165);
+    width: 7em; height: 2em;
+    color: rgb(220, 226, 231);
+    margin-top: 10%;
+    border-radius: 5px;
+    border-bottom: 1px solid rgb(109, 74, 109);
+    border-right: 3px solid rgb(97, 84, 97);
     cursor: pointer;
 }

@@ -1,104 +1,112 @@
-import React, { useState, useEffect } from 'react';
-import './Selector.css';
+import React, { useState } from "react";
+import "./Selector.css";
 
-const merchArray = ['GeForce RTX 30 Series', 'GeForce RTX 40 Series', 'GeForce RTX 50 Series'];
-const merchArraySeries50 = ['GeForse RTX 5060','GeForse RTX 5060 Ti', 'GeForse RTX 5070', 'GeForse RTX 5070 Ti', 'GeForse RTX 5080', 'GeForse RTX 5090'];
-const merchArraySeries40 = ['GeForse RTX 4060','GeForse RTX 4060 Ti', 'GeForse RTX 4070', 'GeForse RTX 4070 Ti', 'GeForse RTX 4070 Ti SUPER', 'GeForse RTX 4080 Super', 'GeForse RTX 4090'];
-const merchArraySeries30 = ['GeForse RTX 3050 (6GB)','GeForse RTX 3050 (8GB)','GeForse RTX 3060','GeForse RTX 3060 Ti', 'GeForse RTX 3070', 'GeForse RTX 3070 Ti', 'GeForse RTX 3080', 'GeForse RTX 3080 Ti', 'GeForse RTX 3090','GeForse RTX 3090 Ti'];
-
+const merchArray = [
+  "GeForce RTX 30 Series",
+  "GeForce RTX 40 Series",
+  "GeForce RTX 50 Series",
+];
+const merchArraySeries50 = [
+  "GeForce RTX 5060",
+  "GeForce RTX 5060 Ti",
+  "GeForce RTX 5070",
+  "GeForce RTX 5070 Ti",
+  "GeForce RTX 5080",
+  "GeForce RTX 5090",
+];
+const merchArraySeries40 = [
+  "GeForce RTX 4060",
+  "GeForce RTX 4060 Ti",
+  "GeForce RTX 4070",
+  "GeForce RTX 4070 Ti",
+  "GeForce RTX 4070 Ti SUPER",
+  "GeForce RTX 4080 Super",
+  "GeForce RTX 4090",
+];
+const merchArraySeries30 = [
+  "GeForce RTX 3050 (6GB)",
+  "GeForce RTX 3050 (8GB)",
+  "GeForce RTX 3060",
+  "GeForce RTX 3060 Ti",
+  "GeForce RTX 3070",
+  "GeForce RTX 3070 Ti",
+  "GeForce RTX 3080",
+  "GeForce RTX 3080 Ti",
+  "GeForce RTX 3090",
+  "GeForce RTX 3090 Ti",
+];
 
 function Selector() {
-  // Используем state для всех изменяемых значений
-  const [extendName, setExtendName] = useState(''); //хук на 
-  const [finalName, setFinalName] = useState('');
-  const [isOpen, setIsOpen] = useState(false); //хук на скрытие списка
-  const [modelName, setModelName] = useState('Card model...'); //хук на выбор из списка моделей
-  const [childIsOpen, setChildIsOpen] = useState(false); //хук на дочерний список
+  const [extendName, setExtendName] = useState("");
+  const [finalName, setFinalName] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [modelName, setModelName] = useState("Card model...");
+  const [childIsOpen, setChildIsOpen] = useState(false);
+  const [selectedSeries, setSelectedSeries] = useState(null);
 
   const openCloseList = () => {
     setIsOpen(!isOpen);
+    if (!isOpen) {
+      setSelectedSeries(null);
+    }
   };
 
   const childOpenCloseList = () => {
     setChildIsOpen(!childIsOpen);
   };
 
+  const handleSeriesClick = (seriesName) => {
+    setSelectedSeries(seriesName);
+    setChildIsOpen(true);
+  };
+
   const changeModelName = (event) => {
     setModelName(event.target.textContent);
-    setIsOpen(false); // Закрываем список
+    setIsOpen(false);
     setFinalName(`${event.target.textContent} ${extendName}`);
   };
-  const changeModelNameAfterRadio = () => {
-    setModelName(modelName);
-    setFinalName(`${modelName} ${extendName}`);
-    console.log(finalName);
-  }
 
   return (
-    <div className='selector_widget'>
-      <div className='panelGrid'>
+    <div className="selector_widget">
+      <div className="panelGrid">
         <button className="button" onClick={openCloseList}>
-          {modelName}{isOpen && (
-          <ul className='list'>
-            {merchArray.map(item => (
-              <li 
-                key={item} 
-                className='list_element' 
-                // onClick={changeModelName}
-                onClick={childOpenCloseList}
+          {modelName}
+          {isOpen? (<span className="arrow">&#5169;</span>):(<span className="arrow">&#5167;</span>)}
+        </button>
+        
+        {isOpen && (
+          <ul className="list_1">
+            {merchArray.map((item) => (
+              <li
+                key={item}
+                className="list_element"
+                onClick={() => handleSeriesClick(item)}
               >
-                {item}{childIsOpen && (
-                  <ul className='list'>
-                    {merchArraySeries30.map(item => (
-                      <li 
-                      key={item} 
-                      className='list_element' 
-                      onClick={changeModelName}>
-                        {item}
-                      </li>
-                    ))}
+                {item}
+                {childIsOpen && selectedSeries === item && (
+                  <ul className="list_2">
+                    {(selectedSeries === "GeForce RTX 30 Series"
+                      ? merchArraySeries30
+                      : selectedSeries === "GeForce RTX 40 Series"
+                      ? merchArraySeries40
+                      : merchArraySeries50)
+                      .map((item) => (
+                        <li
+                          key={item}
+                          className="list_element"
+                          onClick={changeModelName}
+                        >
+                          {item}
+                        </li>
+                      ))}
                   </ul>
                 )}
               </li>
             ))}
           </ul>
         )}
-        </button>
-        
-        <label htmlFor="radioNone" className='label'>
-          None
-          <input 
-            type="radio" 
-            className='radio' 
-            id='radioNone' 
-            name='radio' 
-            onClick={() => {setExtendName(''); changeModelNameAfterRadio()}}
-          />
-        </label>
-        <label htmlFor="radioSuper" className='label'>
-          Super
-          <input 
-            type="radio" 
-            className='radio' 
-            id='radioSuper' 
-            name='radio' 
-            onClick={() => {setExtendName('Super'); changeModelNameAfterRadio()}}
-          />
-        </label>
-        <label htmlFor="radioTi" className='label'>
-          Ti
-          <input 
-            type="radio" 
-            className='radio' 
-            id='radioTi' 
-            name='radio' 
-            onClick={() => {setExtendName('Ti'); changeModelNameAfterRadio()}}
-          />
-        </label>
-        <div>
-          {finalName}
-        </div>
       </div>
+      <button className="btnRequest">Request</button>
     </div>
   );
 }

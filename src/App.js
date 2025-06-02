@@ -9,7 +9,7 @@ function App() {
     <div className="App">
 
       <header className="App-header">
-        <div className='title'> PRICE PARCER</div>
+        <div className='title'> PRICE PARSER</div>
         <Exchange/>
       </header>
      

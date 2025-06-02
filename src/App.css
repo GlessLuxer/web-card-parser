@@ -21,13 +21,15 @@
 
 .App-header {
   background-color: #16181d;
-  
+  cursor: default;
   min-height: 10vh;
   display: flex;
   font-size: calc(10px + 2vmin);
   color: white;
-  background-image: radial-gradient(rgb(43, 42, 42) 1px, transparent 0);
+  background-image: radial-gradient(rgb(43, 42, 42) 1px, transparent 10);
   background-size: 20px 20px;
+
+  
   
 }
 
@@ -35,25 +37,24 @@
   display: flex;
   flex-direction:row;
   flex: 1;
-  padding-left: 10%;
+  padding-left: 5%;
   /* border: 2px solid red; */
   align-items: center;
   font-size: calc(20px + 2vmin);
   color: white;
   font-family: 'Roboto';
+  background: linear-gradient(to right, #9498a0, #4239f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 3rem;
+            font-weight: bold;
+    
 }
-
-/* .title::before{
- content: "";
- display: block;
- width: 10%;
- height: 100%;
- background-size: cover;
- background-position: left;
-} */
-
 .App-content{
   background-color: rgb(17, 17, 17);
+  padding-left: 2%;
+  padding-right: 1%;
   min-height: 80vh;
   display: flex;
   flex-direction: row;
